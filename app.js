@@ -200,6 +200,13 @@
       </section>
 
       <section>
+        <div class="sec-title"><h2>${esc(C.playlist.title)}</h2><span class="eyebrow">Spotify</span></div>
+        <p class="mut" style="margin-bottom:10px;font-size:14px">${esc(C.playlist.note)}</p>
+        <div class="embed"><iframe title="${esc(C.playlist.title)} on Spotify" src="https://open.spotify.com/embed/playlist/${esc(C.playlist.id)}?theme=0" width="100%" height="352" frameborder="0" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
+        <a class="btn lime sm" style="margin-top:12px;text-decoration:none" href="https://open.spotify.com/playlist/${esc(C.playlist.id)}" target="_blank" rel="noopener">Open in Spotify</a>
+      </section>
+
+      <section>
         <div class="sec-title"><h2>Announcements</h2></div>
         ${C.announcements.map(a => `<div class="card" style="margin-bottom:10px"><div class="eyebrow">${esc(a.when)}</div><p style="margin-top:4px">${esc(a.text)}</p></div>`).join('')}
       </section>`;

@@ -80,6 +80,9 @@ window.CAMP = {
     { id: 'm5', title: 'Teach one thing', body: 'Share one thing you learned today with someone who missed it.', pts: 15 },
   ],
 
+  // Swap the id when this year's playlist is out (the long ID in the Spotify share link).
+  playlist: { id: '6oStdzgF8KgUVMVEbhzGUY', title: 'Camp playlist', note: "Last year's playlist, as a preview. Listen before, during or after camp." },
+
   announcements: [
     { when: 'Thu 12:40', text: 'Welcome to TAGGED. Find your colour team at check-in and grab your wristband.' },
     { when: 'Thu 13:05', text: 'Phones stay on you all weekend. Notifications will tell you where to be.' },

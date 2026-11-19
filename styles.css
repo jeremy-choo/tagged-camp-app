@@ -157,6 +157,9 @@ section { margin-top: 20px; }
 .range { width: 100%; accent-color: var(--lime); }
 select.input { appearance: none; }
 
+.embed { border: 2.5px solid var(--ink); border-radius: 16px; overflow: hidden; box-shadow: 5px 5px 0 var(--team); background: #121212; min-height: 120px; }
+.embed iframe { display: block; border: 0; }
+
 .splat { animation: splat .5s cubic-bezier(.2,1.6,.4,1); }
 @keyframes splat { from { transform: scale(.6) rotate(-8deg); opacity: 0; } }
 
