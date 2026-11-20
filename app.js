@@ -112,7 +112,7 @@
 
   function renderTop() {
     $('#top').innerHTML = state.me ? `
-      <div class="logo">TAG.</div>
+      <div class="brand"><div class="logo">TAG.</div><span class="teamchip" style="--c:${team(state.me.team).color}">${team(state.me.team).name}</span></div>
       <div class="top-actions">
         <button class="chip" id="demoBtn" aria-label="Demo controls">${state.demo.on ? '⏱ DEMO' : '⏱'}</button>
         <button class="chip" id="bellBtn" aria-label="Notifications">${svg('bell').replace('<svg', '<svg width="20" height="20" style="width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2"')}${state.unread ? '<span class="dot"></span>' : ''}</button>
@@ -143,7 +143,7 @@
     const picked = state._pick || null;
     return `<div class="hero">
         <img class="hero-img" src="hero.jpg" alt="TAG. You're it! Teens running and reaching to tag each other">
-        <p class="h-tag" style="margin-top:22px">You've been called. Now pass it on.</p>
+        <p class="h-tag" style="margin-top:26px">You've been called.<br><em>Now pass it on.</em></p>
         <p class="lead">Schedule, worships, the tag game and your team, all in one place.</p>
       </div>
       <div class="field"><label for="nm">Your first name</label><input id="nm" class="input" autocomplete="given-name" maxlength="18" placeholder="e.g. Sam" value="${esc(state._name || '')}"></div>
@@ -164,7 +164,7 @@
       <img class="homebanner" src="hero.jpg" alt="TAG. You're it!">
       <p class="eyebrow">${esc(dayTxt)}</p>
       <h1 class="h-tag" style="margin-top:4px">Yo, ${esc(state.me.name)}.</h1>
-      <div class="row" style="margin-top:6px"><span class="sw" style="--c:${tm.color}"></span><span class="eyebrow" style="color:#fff;font-size:14px;text-shadow:1px 2px 0 var(--ink)">Team ${tm.name}</span></div>
+      <div style="margin-top:12px"><span class="teambadge" style="--c:${tm.color}">Team ${tm.name}</span></div>
 
       <section>
         <div class="sticker now tilt-l" style="--team:${cur ? C.types[cur.type].color : '#9a968c'}">

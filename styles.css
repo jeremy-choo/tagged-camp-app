@@ -38,13 +38,24 @@ a { color: inherit; }
 /* type */
 .eyebrow { font-weight: 900; text-transform: uppercase; letter-spacing: .12em; font-size: 12px; color: var(--mut); }
 #view > p.eyebrow, .sec-title .eyebrow, #view > .eyebrow { color: #cfe3ff; }
-.h-tag { font-family: var(--display); font-size: 34px; line-height: 1.05; color: #fff; -webkit-text-stroke: 7px var(--ink); paint-order: stroke fill; text-shadow: 3px 3px 0 var(--ink); font-weight: 400; letter-spacing: .5px; }
-#view > p.h-tag { font-size: 26px; }
+/* poster-style lettering: yellow fill, thick navy outline, hard drop shadow */
+.h-tag { font-family: var(--display); font-size: 38px; line-height: 1.02; color: var(--yellow); -webkit-text-stroke: 9px var(--ink); paint-order: stroke fill; text-shadow: 0 5px 0 var(--ink), 3px 6px 0 var(--ink); font-weight: 400; letter-spacing: 1px; transform: rotate(-1.5deg); transform-origin: left center; display: block; width: fit-content; }
+#view > p.h-tag { font-size: 28px; line-height: 1.12; }
+#view > p.h-tag em { font-style: normal; color: #fff; }
 .mut { color: var(--mut); }
 #view > .mut, section > p.mut, #view > p.mut { color: #e7f1ff; }
 section { margin-top: 22px; }
 .sec-title { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 10px; }
-.sec-title h2 { font-family: var(--display); font-weight: 400; font-size: 24px; color: #fff; -webkit-text-stroke: 6px var(--ink); paint-order: stroke fill; text-shadow: 2px 3px 0 var(--ink); transform: rotate(-1.5deg); letter-spacing: .5px; }
+.sec-title h2 { font-family: var(--display); font-weight: 400; font-size: 25px; color: #fff; -webkit-text-stroke: 7px var(--ink); paint-order: stroke fill; text-shadow: 0 3px 0 var(--ink), 2px 4px 0 var(--ink); transform: rotate(-1.5deg); letter-spacing: 1px; position: relative; padding-bottom: 6px; }
+.sec-title h2::after { content: ''; position: absolute; left: 2px; right: 8px; bottom: -2px; height: 7px; background: var(--team); border: 2.5px solid var(--ink); border-radius: 6px; transform: rotate(-1deg); z-index: -1; }
+
+/* team identity */
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.teamchip, .teambadge { display: inline-flex; align-items: center; gap: 6px; background: var(--c); color: var(--ink); border: 3px solid var(--ink); border-radius: 999px; font-weight: 900; text-transform: uppercase; letter-spacing: .06em; box-shadow: 3px 3px 0 var(--ink); white-space: nowrap; }
+.teamchip { padding: 3px 10px; font-size: 12px; transform: rotate(2deg); }
+.teambadge { padding: 5px 16px; font-family: var(--display); font-weight: 400; font-size: 22px; letter-spacing: .08em; transform: rotate(-2deg); }
+.lbrow.me { background: color-mix(in srgb, var(--c) 28%, #fff); }
+.lbrow.me .rank { color: var(--ink); }
 
 /* cards */
 .card, .sticker, .ev .body, .mission, .lbrow, .stat { color: var(--ink); }
@@ -140,7 +151,7 @@ section > .linkbtn { color: #fff; }
 
 /* tab bar */
 #tabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; display: flex; justify-content: center; padding: 0 12px calc(10px + env(safe-area-inset-bottom)); pointer-events: none; }
-#tabs .inner { pointer-events: auto; width: 100%; max-width: 496px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 5px; background: var(--paper); border: 3px solid var(--ink); border-radius: 22px; box-shadow: 5px 5px 0 var(--ink); }
+#tabs .inner { pointer-events: auto; width: 100%; max-width: 496px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; padding: 5px; background: var(--paper); border: 3px solid var(--ink); border-top: 12px solid var(--team); border-radius: 22px; box-shadow: 5px 5px 0 var(--ink); }
 .tab { background: none; border: 0; border-radius: 16px; padding: 7px 4px 6px; display: flex; flex-direction: column; align-items: center; gap: 2px; color: var(--mut); font-weight: 900; font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; }
 .tab svg { width: 24px; height: 24px; stroke: currentColor; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 .tab[aria-current="page"] { background: var(--yellow); color: var(--ink); box-shadow: inset 0 0 0 3px var(--ink); }
