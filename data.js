@@ -84,7 +84,7 @@ window.CAMP = {
   playlist: { id: '6oStdzgF8KgUVMVEbhzGUY', title: 'Camp playlist', note: "Last year's playlist, as a preview. Listen before, during or after camp." },
 
   announcements: [
-    { when: 'Thu 12:40', text: 'Welcome to TAGGED. Find your colour team at check-in and grab your wristband.' },
+    { when: 'Thu 12:40', text: "Welcome to TAG. You're it! Find your colour team at check-in and grab your wristband." },
     { when: 'Thu 13:05', text: 'Phones stay on you all weekend. Notifications will tell you where to be.' },
   ],
 };

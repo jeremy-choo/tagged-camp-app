@@ -1,6 +1,6 @@
 // Cache the app shell so the schedule works with no signal at camp.
-const CACHE = 'tagged-v1';
-const SHELL = ['./', './index.html', './styles.css', './app.js', './data.js', './manifest.webmanifest', './icon.svg'];
+const CACHE = 'tagged-v2';
+const SHELL = ['./', './index.html', './styles.css', './app.js', './data.js', './manifest.webmanifest', './icon.svg', './hero.jpg'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));

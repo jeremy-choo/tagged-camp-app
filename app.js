@@ -28,7 +28,7 @@
     done: LS.get('done', []),
     bonus: LS.get('bonus', {}),
     inbox: LS.get('inbox', [
-      { t: 'Welcome to TAGGED', b: 'Turn on notifications so you never miss a worship or a twist.', w: 'Thu 12:30' },
+      { t: "Welcome to TAG. You're it!", b: 'Turn on notifications so you never miss a worship or a twist.', w: 'Thu 12:30' },
     ]),
     unread: LS.get('unread', 1),
     tipDismissed: LS.get('tip', false),
@@ -112,7 +112,7 @@
 
   function renderTop() {
     $('#top').innerHTML = state.me ? `
-      <div class="logo">TAGGED</div>
+      <div class="logo">TAG.</div>
       <div class="top-actions">
         <button class="chip" id="demoBtn" aria-label="Demo controls">${state.demo.on ? '⏱ DEMO' : '⏱'}</button>
         <button class="chip" id="bellBtn" aria-label="Notifications">${svg('bell').replace('<svg', '<svg width="20" height="20" style="width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2"')}${state.unread ? '<span class="dot"></span>' : ''}</button>
@@ -142,14 +142,14 @@
   function viewOnboard() {
     const picked = state._pick || null;
     return `<div class="hero">
-        <div class="logo">TAGGED</div>
-        <p class="h-tag" style="margin-top:20px">You've been called. Now pass it on.</p>
-        <p>Schedule, worships, the tag game and your team, all in one place.</p>
+        <img class="hero-img" src="hero.jpg" alt="TAG. You're it! Teens running and reaching to tag each other">
+        <p class="h-tag" style="margin-top:22px">You've been called. Now pass it on.</p>
+        <p class="lead">Schedule, worships, the tag game and your team, all in one place.</p>
       </div>
       <div class="field"><label for="nm">Your first name</label><input id="nm" class="input" autocomplete="given-name" maxlength="18" placeholder="e.g. Sam" value="${esc(state._name || '')}"></div>
       <div class="field"><label>Your team colour</label>
         <div class="swatches">${C.teams.map(t => `<button class="swatch" style="--c:${t.color}" data-t="${t.id}" aria-pressed="${picked === t.id}">${t.name}</button>`).join('')}</div>
-        <p class="mut" style="margin-top:10px;font-size:14px">In the real thing, your team comes pre-loaded from the roster. Scan the code on your wristband.</p>
+        <p class="hint">In the real thing, your team comes pre-loaded from the roster. Scan the code on your wristband.</p>
       </div>
       <div class="field"><button class="btn" id="go" ${picked ? '' : 'disabled'}>Get tagged</button></div>`;
   }
@@ -161,9 +161,10 @@
     const ns = notifState();
     const needTip = !state.tipDismissed && !standalone();
     return `
+      <img class="homebanner" src="hero.jpg" alt="TAG. You're it!">
       <p class="eyebrow">${esc(dayTxt)}</p>
       <h1 class="h-tag" style="margin-top:4px">Yo, ${esc(state.me.name)}.</h1>
-      <div class="row" style="margin-top:6px"><span class="sw" style="--c:${tm.color}"></span><span class="eyebrow" style="color:var(--ink)">Team ${tm.name}</span></div>
+      <div class="row" style="margin-top:6px"><span class="sw" style="--c:${tm.color}"></span><span class="eyebrow" style="color:#fff;font-size:14px;text-shadow:1px 2px 0 var(--ink)">Team ${tm.name}</span></div>
 
       <section>
         <div class="sticker now tilt-l" style="--team:${cur ? C.types[cur.type].color : '#9a968c'}">
@@ -179,7 +180,7 @@
       <section>
         <button class="card" id="goGame" style="width:100%;text-align:left;border-color:${gs.live ? 'var(--lime)' : 'var(--line)'}">
           <div class="row" style="justify-content:space-between">
-            <div><span class="pill" style="color:${gs.live ? 'var(--lime)' : 'var(--mut)'}">${gs.live ? '<i class="dotlive"></i> Live' : 'Paused'}</span>
+            <div><span class="pill" style="color:${gs.live ? 'var(--lime)' : '#cdd8ff'}">${gs.live ? '<i class="dotlive"></i> Live' : 'Paused'}</span>
             <div style="font-family:var(--label);font-weight:700;font-size:20px;letter-spacing:.04em;margin-top:6px">${esc(gs.why)}</div>
             <div class="mut" style="font-size:14px">${survivors()} survivors left · ${state.game.tags} tags by you</div></div>
             <span style="font-family:var(--display);font-size:28px">→</span>
@@ -188,11 +189,11 @@
       </section>
 
       ${ns === 'default' || (ns === 'unsupported' && isIOS()) ? `<section><div class="card"><div class="eyebrow">Don't miss a thing</div>
-        <p style="margin:6px 0 12px">${ns === 'unsupported' ? 'On iPhone: tap Share, then <b>Add to Home Screen</b>, then open TAGGED from your home screen to switch on notifications.' : 'Get a buzz before worship, twists and when the cannon fires.'}</p>
+        <p style="margin:6px 0 12px">${ns === 'unsupported' ? 'On iPhone: tap Share, then <b>Add to Home Screen</b>, then open TAG. from your home screen to switch on notifications.' : 'Get a buzz before worship, twists and when the cannon fires.'}</p>
         ${ns === 'default' ? '<button class="btn lime sm" id="enableN">Turn on notifications</button>' : ''}</div></section>` : ''}
       ${ns === 'denied' ? `<section><div class="card"><div class="eyebrow">Notifications are blocked</div><p class="mut" style="margin-top:6px">Allow them for this app in your phone's settings.</p></div></section>` : ''}
 
-      ${needTip && ns !== 'unsupported' ? `<section><div class="card"><div class="eyebrow">Tip</div><p style="margin:6px 0 10px">Install TAGGED on your home screen so it opens like a normal app and works with no signal.</p><button class="linkbtn" id="dismissTip">Got it</button></div></section>` : ''}
+      ${needTip && ns !== 'unsupported' ? `<section><div class="card"><div class="eyebrow">Tip</div><p style="margin:6px 0 10px">Install TAG. on your home screen so it opens like a normal app and works with no signal.</p><button class="linkbtn" id="dismissTip">Got it</button></div></section>` : ''}
 
       <section>
         <div class="sec-title"><h2>Today's twist</h2></div>
@@ -251,7 +252,7 @@
       <section><div class="stats">
         <div class="stat"><b>${survivors()}</b><span>Survivors</span></div>
         <div class="stat"><b>${state.game.tags}</b><span>Your tags</span></div>
-        <div class="stat"><b style="color:${tm.color}">${state.game.out.length}</b><span>Fallen</span></div>
+        <div class="stat"><b>${state.game.out.length}</b><span>Fallen</span></div>
       </div></section>
 
       <section><div class="sec-title"><h2>Today's twist</h2></div>

@@ -1,13 +1,13 @@
 {
-  "name": "TAGGED – Teen Tent",
-  "short_name": "TAGGED",
+  "name": "TAG. You're it! – Teen Tent",
+  "short_name": "TAG.",
   "description": "Schedule, tag game and missions for the Teen Tent.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#0b0b0e",
-  "theme_color": "#0b0b0e",
+  "background_color": "#1478ff",
+  "theme_color": "#1478ff",
   "icons": [
     { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
   ]
